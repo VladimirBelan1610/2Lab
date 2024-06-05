@@ -23,7 +23,7 @@ public:
     void add( const shared_ptr< Unit >& unit, Flags /* flags */ = 0 );
     string compile( unsigned int level = 0 ) const;
 
-private:
+protected:
 
     string m_name;
     string m_returnType;

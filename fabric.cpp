@@ -1,44 +1,47 @@
 #include "fabric.h"
+#include "classeslang.h"
+#include "classesmethod.h"
+#include "ClassPrintOperator.h"
 
-shared_ptr<ClassJava> FabricJava::createClass(const string& name)
+shared_ptr<ClassUnit> FabricJava::createClass(const string& name)
 {
     return make_shared<ClassJava>(name);
 }
-shared_ptr<JavaMethod> FabricJava::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
+shared_ptr<MethodUnit> FabricJava::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
 {
     return make_shared<JavaMethod>(methodName, returnValue, flags);
 }
-shared_ptr<JavaPrintOperator> FabricJava::createPrintOperator(const string& printText)
+shared_ptr<PrintOperatorUnit> FabricJava::createPrintOperator(const string& printText)
 {
     return make_shared<JavaPrintOperator>(printText);
 }
 
 
 
-shared_ptr<ClassCSharp> FabricCSharp::createClass(const string& name)
+shared_ptr<ClassUnit> FabricCSharp::createClass(const string& name)
 {
     return make_shared<ClassCSharp>(name);
 }
-shared_ptr<CSharpMethod> FabricCSharp::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
+shared_ptr<MethodUnit> FabricCSharp::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
 {
-    return make_shared<CSharpMethod>(methodName, returnValue, flags);
+    return make_shared<CSharpMethod> (methodName, returnValue, flags);
 }
-shared_ptr<CSharpPrintOperator> FabricCSharp::createPrintOperatorUnit(const string& printText)
+shared_ptr<PrintOperatorUnit> FabricCSharp::createPrintOperator(const string& printText)
 {
     return make_shared<CSharpPrintOperator>(printText);
 }
 
 
 
-shared_ptr<ClassCPlus> FabricCPlus::createClass(const string& name)
+shared_ptr<ClassUnit> FabricCPlus::createClass(const string& name)
 {
      return make_shared<ClassCPlus>(name);
 }
-shared_ptr<CPlusMethod> FabricCPlus::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
+shared_ptr<MethodUnit> FabricCPlus::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
 {
      return make_shared<CPlusMethod>(methodName, returnValue, flags);
 }
-shared_ptr<CPlusPrintOperator> FabricCPlus::createPrintOperatorUnit(const string& printText)
+shared_ptr<PrintOperatorUnit> FabricCPlus::createPrintOperator(const string& printText)
 {
      return make_shared<CPlusPrintOperator>(printText);
 }

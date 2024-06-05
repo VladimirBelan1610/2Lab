@@ -1,8 +1,6 @@
 #ifndef FABRIC_H
 #define FABRIC_H
-#include "ClassPrintOperator.h"
 #include "PrintOperatorUnit.h"
-#include "classeslang.h"
 #include "classesmethod.h"
 #include "classunit.h"
 #include "methodunit.h"
@@ -23,23 +21,26 @@ public:
 class FabricJava : public Fabric
 {
 public:
-    shared_ptr<ClassJava> createClass(const string& name);
-    shared_ptr<JavaMethod> createMethod(const string& methodName, const string& returnValue, unsigned int flags);
-    shared_ptr<JavaPrintOperator> createPrintOperator(const string& printText);
+    shared_ptr<ClassUnit> createClass(const string& name) override;
+    shared_ptr<MethodUnit> createMethod(const string& methodName, const string& returnValue, unsigned int flags) override
+    {
+        return make_shared<JavaMethod>(methodName, returnValue, flags);
+    }
+    shared_ptr<PrintOperatorUnit> createPrintOperator(const string& printText) override;
 };
 
 class FabricCSharp : public Fabric
 {
 public:
-    shared_ptr<ClassCSharp> createClass(const string& name);
-    shared_ptr<CSharpMethod> createMethod(const string& methodName, const string& returnValue, unsigned int flags);
-    shared_ptr<CSharpPrintOperator> createPrintOperatorUnit(const string& printText);
+    shared_ptr<ClassUnit> createClass(const string& name) override;
+    shared_ptr<MethodUnit> createMethod(const string& methodName, const string& returnValue, unsigned int flags) override;
+    shared_ptr<PrintOperatorUnit> createPrintOperator(const string& printText) override;
 };
 class FabricCPlus : public Fabric
 {
-    shared_ptr<ClassCPlus> createClass(const string& name);
-    shared_ptr<CPlusMethod> createMethod(const string& methodName, const string& returnValue, unsigned int flags);
-    shared_ptr<CPlusPrintOperator> createPrintOperatorUnit(const string& printText);
+    shared_ptr<ClassUnit> createClass(const string& name) override;
+    shared_ptr<MethodUnit> createMethod(const string& methodName, const string& returnValue, unsigned int flags) override;
+    shared_ptr<PrintOperatorUnit> createPrintOperator(const string& printText) override;
 };
 
 #endif // FABRIC_H
