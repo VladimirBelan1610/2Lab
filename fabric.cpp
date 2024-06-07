@@ -5,7 +5,7 @@
 
 shared_ptr<ClassUnit> FabricJava::createClass(const string& name)
 {
-    return make_shared<ClassJava>(name);
+    return make_shared<ClassJava>(name); //метод createClass возвращает умный указатель shared_ptr на новый объект класса ClassJava.
 }
 shared_ptr<MethodUnit> FabricJava::createMethod(const string& methodName, const string& returnValue, unsigned int flags)
 {

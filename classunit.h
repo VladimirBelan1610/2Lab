@@ -13,7 +13,8 @@ public:
     enum AccessModifier {
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        DEFAULT
     };
     static const vector< string > ACCESS_MODIFIERS;
 public:
@@ -23,11 +24,12 @@ public:
     }
     void add( const shared_ptr< Unit >& unit, Flags flags );
     string compile( unsigned int level = 0 ) const;
-private:
+protected:
 
     string m_name;
     using Fields = vector< shared_ptr< Unit > >;
     vector< Fields > m_fields;
+    Flags m_flags;
 };
 
 
