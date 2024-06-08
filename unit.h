@@ -10,10 +10,12 @@ class Unit {
 
 public:
 
-    using Flags = unsigned int;
+    using Flags = unsigned int; //Здесь определяется псевдоним Flags для типа unsigned int. Это означает, что внутри класса Unit тип
+    //Flags будет эквивалентен типу unsigned int. В дальнейшем внутри класса Unit можно использовать Flags вместо unsigned int.
 
 public:
-    virtual ~Unit() = default;
+    virtual ~Unit() = default; //объявление виртуального деструктора класса Unit, который устанавливает его по умолчанию.
+
     virtual void add( const shared_ptr< Unit >& , Flags ); //Виртуальный метод add, принимающий умный указатель на объект класса Unit и
                                                           //флаги типа Flags
     virtual string compile( unsigned int level = 0 ) const = 0;
