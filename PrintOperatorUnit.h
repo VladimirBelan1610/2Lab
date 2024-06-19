@@ -10,7 +10,7 @@ using namespace std;
 class PrintOperatorUnit : public Unit {
 public:
     explicit PrintOperatorUnit( const string& text ) : m_text( text ) { }
-    string compile( unsigned int level = 0 ) const;
+    virtual string compile( unsigned int level = 0 ) const = 0;
 private:
     string m_text;
 };

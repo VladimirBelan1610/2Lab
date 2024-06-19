@@ -21,7 +21,7 @@ public:
 
     MethodUnit( const string& name, const string& returnType, Flags flags ) : m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
     void add( const shared_ptr< Unit >& unit, Flags /* flags */ = 0 );
-    string compile( unsigned int level = 0 ) const;
+    virtual string compile( unsigned int level = 0 ) const = 0;
 
 protected:
 

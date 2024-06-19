@@ -26,7 +26,7 @@ public:
         m_fields.resize( ACCESS_MODIFIERS.size() );
     }
     void add( const shared_ptr< Unit >& unit, Flags flags );
-    string compile( unsigned int level = 0 ) const;
+    virtual string compile( unsigned int level = 0 )  const = 0;
 protected:
 
     string m_name;
