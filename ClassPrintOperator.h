@@ -5,7 +5,12 @@
 class JavaPrintOperator : public PrintOperatorUnit
 {
 public:
-    explicit JavaPrintOperator( const string& text ) : PrintOperatorUnit( text ), m_text( text ) { }
+    explicit JavaPrintOperator( const string& text ) : PrintOperatorUnit( text ), m_text( text ) { } //Ключевое слово explicit используется
+    //для предотвращения неявных преобразований инициализации при создании объекта. Конструктор принимает один параметр: text.
+    //Текст, который будет выведен оператором печати.
+
+   //Инициализация базового класса PrintOperatorUnit( text ) означает, что конструктор базового класса PrintOperatorUnit вызывается с
+    //параметром text.
     string compile( unsigned int level = 0 ) const;
 private:
     string m_text;

@@ -17,7 +17,8 @@ public:
 
     static const vector <string> MODIFIERS;
 public:
-
+//Это конструктор класса JavaMethod. Он принимает три параметра: name: Имя метода. returnType: Тип возвращаемого значения метода.
+  //flags: Флаги, которые определяют различные модификаторы доступа
     JavaMethod( const string& name, const string& returnType, Flags flags ) : MethodUnit(name, returnType, flags), m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
     void add( const shared_ptr< Unit >& unit, Flags /* flags */ = 0 );
     string compile( unsigned int level = 0 ) const;

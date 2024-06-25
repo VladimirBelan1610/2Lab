@@ -13,7 +13,8 @@ using namespace std;
 class Fabric //Содержит чисто виртуальные методы для создания объектов различных типов: классов, методов и операторов вывода.
 {
 public:
-    virtual shared_ptr<ClassUnit> createClass(const string& name) = 0;
+    virtual shared_ptr<ClassUnit> createClass(const string& name) = 0; //Метод возвращает умный указатель shared_ptr на объект типа
+    //ClassUnit.
     virtual shared_ptr<MethodUnit> createMethod(const string& methodName, const string& returnValue, unsigned int flags) = 0;
     virtual shared_ptr<PrintOperatorUnit> createPrintOperator(const string& printText) = 0;
 };
